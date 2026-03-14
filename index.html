@@ -1,0 +1,105 @@
+export default function LakshitaLoveWebsite() {
+  const compliments = [
+    "Lakshita, you are genuinely the cutest and most beautiful person I've ever seen 💗",
+    "Your smile could melt a thousand hearts in seconds 🌸",
+    "Every time I think of you the world feels softer and brighter ✨",
+    "Lakshita, your beauty is not just in how you look but in the warmth you bring 💞",
+    "You make ordinary moments feel romantic just by existing 💌",
+    "Lakshita, I love you soo much (by Kaushal) 💘",
+  ];
+
+  return (
+    <div className="min-h-screen w-full relative overflow-hidden font-sans bg-pink-100">
+
+      {/* background hearts image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1974&auto=format&fit=crop')",
+          backgroundSize: "cover",
+          backgroundPosition: "left center",
+        }}
+      />
+
+      {/* pink overlay */}
+      <div className="absolute inset-0 bg-pink-200/60" />
+
+      {/* floating hearts */}
+      <style>{`
+        @keyframes float {
+          0%{transform:translateY(0px);opacity:0}
+          50%{opacity:1}
+          100%{transform:translateY(-800px);opacity:0}
+        }
+      `}</style>
+
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              left: Math.random() * 100 + "%",
+              bottom: "-50px",
+              fontSize: 20 + Math.random() * 30,
+              animation: `float ${6 + Math.random() * 6}s linear infinite`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          >
+            💖
+          </div>
+        ))}
+      </div>
+
+      {/* center love letter */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
+
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl max-w-2xl w-full p-10 border border-pink-200">
+
+          <div className="text-center mb-6">
+            <div className="text-5xl">💌</div>
+            <h1 className="text-4xl font-bold text-pink-600 mt-3">
+              Lakshita you're soo cute and beautiful
+            </h1>
+          </div>
+
+          <div className="space-y-4 text-lg text-pink-900 text-center">
+            <p>
+              Lakshita, there is something about you that makes the world feel softer and more beautiful.
+            </p>
+
+            <p>
+              Your smile, your presence, and your charm make everything feel warm and romantic.
+            </p>
+
+            <p>
+              Sometimes cute and beautiful don't feel like enough words to describe you.
+            </p>
+
+            <p className="text-2xl font-bold text-pink-600">
+              Lakshita I love you soo much (by Kaushal) 💘
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-3">
+            {compliments.map((c, i) => (
+              <div
+                key={i}
+                className="bg-pink-50 border border-pink-200 rounded-xl px-4 py-3 text-pink-800"
+              >
+                {c}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8 text-pink-700 font-semibold">
+            made with love by Kaushal 💞
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
